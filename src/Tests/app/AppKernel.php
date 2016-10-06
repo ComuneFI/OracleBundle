@@ -1,6 +1,6 @@
 <?php
 
-// Tests/AppKernel.php (you can define it in a subdirectory /Fixtures if you prefer)
+namespace Fi\OracleBundle\Tests;
 
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;

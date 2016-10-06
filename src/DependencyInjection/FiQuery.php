@@ -8,9 +8,9 @@ namespace Fi\OracleBundle\DependencyInjection;
  */
 
 /**
- * @author D59495
+ * @author manzolo
  */
-class fiQuery extends fiOracle
+class FiQuery extends FiOracle
 {
     private $resultset = array();
     private $numrows = 0;

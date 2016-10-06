@@ -2,7 +2,7 @@
 
 namespace Fi\OracleBundle\DependencyInjection;
 
-class fiOracle
+class FiOracle
 {
     private $OracledbName;
     private $Oracleusername;
