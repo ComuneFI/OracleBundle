@@ -1,0 +1,3 @@
+fi_oracle_homepage:
+    path:  /oracle/demo
+    defaults: { _controller: FiOracleBundle:Default:index }

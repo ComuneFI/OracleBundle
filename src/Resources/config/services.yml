@@ -1,0 +1,15 @@
+parameters:
+    fiQuery.class: Fi\OracleBundle\DependencyInjection\fiQuery
+    #arguments: [%connessione%]
+
+    #    fi_oracle.example.class: Fi\OracleBundle\Example
+
+services:
+#    fi_oracle.example:
+#        class: %fi_oracle.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+    oracle_manager:
+        class:     "%fiQuery.class%"
+        #arguments: [@service_id, "plain_value", %parameter%]
+        arguments: [%connessione_oracle%]
