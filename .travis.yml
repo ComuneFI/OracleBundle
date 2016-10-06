@@ -7,16 +7,7 @@ php:
 
 before_script:
   - phpenv config-add travis.php.ini
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3 # give xvfb some time to start
   - composer install
-  - php app/console fifree2:install admin admin admin@admin.it --env=test
-  - php app/console server:start --env=test
-  - sh vendor/bin/selenium-server-standalone > /dev/null 2>&1 &
-  - rm -rf app/cache/test
-  - rm -rf app/cache/dev
-  - chmod +w app/cache app/logs src/ app/AppKernel.php app/config/routing.yml
 
 script:
   - ant
@@ -24,7 +15,6 @@ script:
 after_success:
   - if [[ "$TRAVIS_PHP_VERSION" == "5.6" ]]; then php vendor/satooshi/php-coveralls/bin/coveralls -v; fi
   - vendor/bin/security-checker -n security:check
-  - rm app/dbtest.sqlite
 
 notifications:
   email:
