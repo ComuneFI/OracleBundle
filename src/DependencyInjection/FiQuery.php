@@ -57,7 +57,8 @@ class FiQuery extends FiOracle
             $fetchMode = OCI_FETCHSTATEMENT_BY_ROW;
         }
 
-        $this->numrows = oci_fetch_all($sql_statement, $this->resultset, $this->initialrow, $this->maxrows, $fetchMode + OCI_ASSOC + OCI_RETURN_NULLS);
+        $fetchmodquery = $fetchMode + OCI_ASSOC + OCI_RETURN_NULLS;
+        $this->numrows = oci_fetch_all($sql_statement, $this->resultset, $this->initialrow, $this->maxrows, $fetchmodquery);
 
         /* while (($row = oci_fetch_array($sql_statement, OCI_ASSOC + OCI_RETURN_NULLS))) {
           //Si prendono i dati dal db
