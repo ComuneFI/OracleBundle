@@ -25,7 +25,7 @@ class fiOracle
         if (!$this->dbOracle) {
             $err_description = oci_error();
             echo 'Impossibile stabilire una connessione con il server Oracle: '.$this->OracledbName.htmlentities($err_description['message']);
-            exit;
+            return null;
         }
 
         return $this->dbOracle;
