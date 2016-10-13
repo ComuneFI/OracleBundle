@@ -17,16 +17,15 @@ class FiOracle
         $this->OracledbName = $connessione;
         $this->Oracleusername = $utente;
         $this->Oraclepassword = $password;
-        //PutEnv("NLS_LANG=ITALIAN_ITALY.WE8ISO8859P1");
-    //PutEnv("NLS_LANG=AMERICAN_AMERICA.WE8MSWIN1252");
         /* Connessione oracle */
         $this->dbOracle = oci_connect($this->Oracleusername, $this->Oraclepassword, $this->OracledbName, 'AL32UTF8');
         // test connection
         if (!$this->dbOracle) {
             $err_description = oci_error();
-            echo 'Impossibile stabilire una connessione con il server Oracle: '.$this->OracledbName.htmlentities($err_description['message']);
-
-            return null;
+            $code = $err_description['code'];
+            $message = 'Impossibile stabilire una connessione con il server Oracle: '.
+                    $this->OracledbName.htmlentities($err_description['message']);
+            throw new Exception($message, $code);
         }
 
         return $this->dbOracle;
