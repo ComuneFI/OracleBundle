@@ -1,5 +1,5 @@
 parameters:
-    fiQuery.class: Fi\OracleBundle\DependencyInjection\FiQuery
+    FiQuery.class: Fi\OracleBundle\DependencyInjection\FiQuery
     #arguments: [%connessione%]
 
     #    fi_oracle.example.class: Fi\OracleBundle\Example
@@ -12,4 +12,4 @@ services:
     oracle_manager:
         class:     "%FiQuery.class%"
         #arguments: [@service_id, "plain_value", %parameter%]
-        arguments: [%connessione_oracle%]
+        arguments: [ "%connessione_oracle%" ]
