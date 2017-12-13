@@ -39,7 +39,7 @@ class FiQuery extends FiOracle
         $sql_statement = oci_parse($dbOracle, $sql);
 
         $qParameters = (isset($parms['query_parameters']) ? $parms['query_parameters'] : array());
-        //var_dump($qParameters);exit;
+
         foreach ($qParameters as $key => $value) {
             oci_bind_by_name($sql_statement, $key, $value);
         }
@@ -48,7 +48,6 @@ class FiQuery extends FiOracle
         if (!$exitcode) {
             $ex = oci_error($sql_statement);
             trigger_error('Impossibile eseguire la query: '.$sql.'<br/>'.$ex['message'], E_USER_ERROR);
-            //trigger_error(htmlentities($ex['message'], ENT_QUOTES), E_USER_ERROR);
         }
 
         if (isset($parms['fetch_by_column']) && $parms['fetch_by_column']) {
@@ -60,16 +59,9 @@ class FiQuery extends FiOracle
         $fetchmodquery = $fetchMode + OCI_ASSOC + OCI_RETURN_NULLS;
         $this->numrows = oci_fetch_all($sql_statement, $this->resultset, $this->initialrow, $this->maxrows, $fetchmodquery);
 
-        /* while (($row = oci_fetch_array($sql_statement, OCI_ASSOC + OCI_RETURN_NULLS))) {
-          //Si prendono i dati dal db
-          $this->resultset[] = $row;
-          } */
-
         //Si libera la risorsa che conteneva lo statment sql
         oci_free_statement($sql_statement);
         //oci_close($dbOracle);
-
-        //var_dump($this->lista);
     }
 
     public function executeQuery($sql)
@@ -88,7 +80,6 @@ class FiQuery extends FiOracle
         if (!$exitcode) {
             $ex = oci_error($sql_statement);
             trigger_error('Impossibile eseguire la query: '.$sql.'<br/>'.$ex['message'], E_USER_ERROR);
-            //trigger_error(htmlentities($ex['message'], ENT_QUOTES), E_USER_ERROR);
         }
 
         //Si libera la risorsa che conteneva lo statment sql
