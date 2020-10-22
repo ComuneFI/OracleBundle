@@ -2,6 +2,8 @@
 
 namespace Fi\OracleBundle\DependencyInjection;
 
+use Exception;
+
 class FiOracle
 {
     private $OracledbName;
@@ -25,7 +27,7 @@ class FiOracle
             $code = $err_description['code'];
             $message = 'Impossibile stabilire una connessione con il server Oracle: '.
                     $this->OracledbName.htmlentities($err_description['message']);
-            throw new \Exception($message, $code);
+            throw new Exception($message, $code);
         }
 
         return $this->dbOracle;
