@@ -7,7 +7,7 @@ php:
 
 before_script:
   - phpenv config-add travis.php.ini
-  - composer install
+  - COMPOSER_MEMORY_LIMIT=-1 composer install
 
 script:
   - ant
