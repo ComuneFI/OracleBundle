@@ -17,8 +17,9 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder('fi_oracle');
-        $treeBuilder->getRootNode();
+        $treeBuilder = new TreeBuilder();
+        $treeBuilder->root('fi_oracle');
+
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
         // more information on that topic.
