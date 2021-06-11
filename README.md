@@ -1,8 +1,5 @@
 OracleBundle
 =============
-[![Build Status](https://travis-ci.org/ComuneFI/OracleBundle.svg?branch=master)]
-(https://travis-ci.org/ComuneFI/OracleBundle) [![Coverage Status](https://img.shields.io/coveralls/ComuneFI/OracleBundle.svg)] 
-(https://coveralls.io/r/ComuneFI/OracleBundle)
 
 Installazione:
 -------------
